@@ -1,0 +1,22 @@
+<nav class="main-nav">
+    <a href="/home" class="logo"><%- include('../partials/logo.ejs') %></a>
+    <div class="menu-icon"><%- include('../partials/open-close-menu.ejs') %></div>
+    <div class="control">
+        <ul class="sections">
+            <li><a href="/home">home</a></li>
+            <li><a href="/tasks">tasks</a></li>
+            <li><a href="/about">about</a></li>
+        </ul>
+        <div class="log-register">
+            <a href="/login" class="login-btn"> <%=loginBtn %> </a>
+            <a href="/signup" class="signup-btn"> <%= signupBtn %> </a>
+        </div>
+    </div>
+    <script>
+        const menuBtn = document.querySelector(".menu-icon");
+        const control = document.querySelector(".control");
+        menuBtn.addEventListener("click", () => {
+            control.classList.toggle("slide-menu-down");
+        });
+    </script>
+</nav>

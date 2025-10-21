@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .settingsBody {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                .font-family {
+                    display: flex;
+                    gap: 15px;
+                    align-items: center;
+                    h2 {
+                        font-size: 18px;
+                    }
+                    #selectFont {
+                        border: none;
+                        outline: none;
+                        background-color: gray;
+                        padding: 10px;
+                        border-radius: 5px 5px 0 0;
+                    }
+                }
+                a{
+                    background-color: brown;
+                    color: white;
+                    padding: 10px 20px;
+                    border-radius: 10px;
+                    text-decoration: none;
+                    font-size: 20px;
+                    &:hover{
+                        background-color: ;
+                    }
+
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="settingsBody">
+            <div class="font-family">
+                <h2>font family</h2>
+                <select name="font" id="selectFont">
+                    <option value="CaveatBrush">CaveatBrush</option>
+                    <option value="FreckleFace">FreckleFace</option>
+                    <option value="FreckleFace">FreckleFace</option>
+                    <option value="Margarine">Margarine</option>
+                    <option value="Miltonian">Miltonian</option>
+                    <option value="SedgwickAveDisplay">SedgwickAveDisplay</option>
+                    <option value="Ranchers">Ranchers</option>
+                    <option value="Sriracha">Sriracha</option>
+                </select>
+            </div>
+            <a href="/logout">log out</a>
+        </div>
+    </body>
+</html>

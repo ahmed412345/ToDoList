@@ -1,0 +1,70 @@
+<style>
+    #menu-icon {
+        transition: 0.3s linear;
+        height: 18px;
+        width: 30px;
+        position: relative;
+        cursor: pointer;
+        text-align: center;
+    }
+    .menu-bar {
+        display: block;
+        width: 100%;
+        border-radius: 2px;
+        transition: 0.3s ease;
+        height: 3px;
+        background-color: black;
+        transition: 0.4s;
+        position: absolute;
+    }
+    .menu-bar:nth-child(1) {
+        top: 0;
+    }
+    .menu-bar:nth-child(2) {
+        top: 9px;
+    }
+    .menu-bar:nth-child(3) {
+        top: 18px;
+    }
+    .above {
+        background-color: brown;
+    }
+    .above:nth-child(1) {
+        top: 9px;
+    }
+    .above:nth-child(2) {
+        width: 0;
+    }
+    .above:nth-child(3) {
+        top: 9px;
+    }
+    .rotate:nth-child(1) {
+        transform: rotate(140deg);
+    }
+    .rotate:nth-child(3) {
+        transform: rotate(-140deg);
+    }
+</style>
+<div id="menu-icon">
+    <span class="menu-bar"></span>
+    <!--class="above rotate"-->
+    <span class="menu-bar"></span>
+    <!--class="above"-->
+    <span class="menu-bar"></span>
+    <!--class="above rotate"-->
+</div>
+<script>
+    let icon = document.getElementById("menu-icon");
+    let bars = document.getElementsByClassName("menu-bar");
+    function addAndRemove(cssClass) {
+        for (let i = 0; i < bars.length; i++) {
+            bars[i].classList.toggle(cssClass);
+        }
+    }
+    icon.onclick = function () {
+        addAndRemove("above");
+        setTimeout(function () {
+            addAndRemove("rotate");
+        }, 300);
+    };
+</script>

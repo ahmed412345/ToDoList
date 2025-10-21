@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/styles/main.css" />
+        <title>Tickit | Simple To-Do Manager</title>
+    </head>
+    <body>
+        <script>
+            const fontValue = localStorage.getItem("fontFamily");
+            if (fontValue) {
+                document.body.style.fontFamily = fontValue;
+            }
+        </script>
+        <header class="home-header">
+            <%- include('../partials/top-navbar.ejs') %>
+            <section class="home-hero">
+                <div class="main-page-header">
+                    <h1>Organize, focus, Tickit</h1>
+                    <p>Plan smarter, move faster, and enjoy every task you complete.</p>
+                    <a href="/signup">Start Planning</a>
+                </div>
+            </section>
+        </header>
+        <main></main>
+        <footer></footer>
+    </body>
+</html>

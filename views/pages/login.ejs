@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Log In</title>
+        <link rel="stylesheet" href="/styles/main.css" />
+    </head>
+    <body id="loginBody">
+        <script>
+            const fontValue = localStorage.getItem("fontFamily");
+            if (fontValue) {
+                document.body.style.fontFamily = fontValue;
+            }
+        </script>
+        <div class="login-container">
+            <div class="login-image-side">
+                <div class="login-img"></div>
+            </div>
+
+            <div class="login-form-side">
+                <h1 class="login-title">Welcome Back</h1>
+                <p class="login-subtext">
+                    Don’t have an account?
+                    <a href="/signup">Create one</a>
+                </p>
+
+                <form class="login-form">
+                    <input type="email" placeholder="Email" id="loginEmail" class="login-input" />
+
+                    <div class="login-password-field">
+                        <input type="password" placeholder="Enter your password" id="loginPassword" class="login-input" />
+                        <svg data-name="Layer 3" class="login-eye-icon" id="Layer_3" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                class="cls-1"
+                                d="M7.64,22.15l1.43-1.44A26.21,26.21,0,0,1,4.41,16C5.8,14.17,10.54,8.53,16,8.53a9.66,9.66,0,0,1,4.16,1l1.48-1.49A12,12,0,0,0,16,6.53c-7.53,0-13.41,8.54-13.66,8.91L2,16l.38.56A27.5,27.5,0,0,0,7.64,22.15Z"
+                            />
+                            <path
+                                class="cls-1"
+                                d="M29.66,15.44a27.51,27.51,0,0,0-5-5.32l-1.43,1.43A26.47,26.47,0,0,1,27.59,16C26.2,17.83,21.46,23.47,16,23.47a9.44,9.44,0,0,1-3.8-.87l-1.51,1.51A11.82,11.82,0,0,0,16,25.47c7.53,0,13.41-8.54,13.66-8.91L30,16Z"
+                            />
+                            <rect
+                                class="cls-1"
+                                height="2"
+                                rx="1"
+                                ry="1"
+                                transform="translate(-6.33 15.28) rotate(-45)"
+                                width="26.29"
+                                x="2.14"
+                                y="14.28"
+                            />
+                            <path class="cls-1" d="M19.13,12.13l-7,7a5,5,0,1,0,7-7Z" />
+                        </svg>
+                    </div>
+
+                    <button type="submit" class="login-btn" id="loginBtn">Log in</button>
+
+                    <div class="login-divider">Or log in with</div>
+
+                    <div class="login-socials">
+                        <button class="login-google" type="button" id="loginGoogleBtn">G&nbsp;&nbsp;Google</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/js/login.js"></script>
+    </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/styles/main.css" />
+        <title>Tasks | Tickit</title>
+    </head>
+    <body>
+        <script>
+            const fontValue = localStorage.getItem("fontFamily");
+            if (fontValue) {
+                document.body.style.fontFamily = fontValue;
+            }
+        </script>
+        <div class="tasks-body">
+            <nav class="side-bar">
+                <%- include('../partials/shrinkicon.ejs') %>
+                <div class="profile">
+                    <div class="img">
+                        <img src="/assets/images/anonymous-avatar.jpg" alt="anonymous-avatar" />
+                    </div>
+                    <h3><%= name %></h3>
+                </div>
+                <div class="search-bar">
+                    <%- include('../partials/searchicon.ejs') %>
+                    <input type="search" placeholder="search" id="search-input" />
+                </div>
+                <div class="nav-categories">
+                    <ul>
+                        <li class="options">
+                            <%- include('../partials/tasksicon.ejs') %>
+                            <span class="hide-appear">all tasks</span>
+                        </li>
+                        <li class="options">
+                            <%- include('../partials/todayicon.ejs') %>
+                            <span class="hide-appear"> today </span>
+                        </li>
+                        <li class="options">
+                            <%- include('../partials/completedicon.ejs') %>
+                            <span class="hide-appear"> completed </span>
+                        </li>
+                        <li class="options">
+                            <%- include('../partials/incompletedicon.ejs') %>
+                            <span class="hide-appear"> incompleted </span>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li>
+                            <%- include('../partials/feedbackicon.ejs') %>
+                            <span class="hide-appear"> feedback </span>
+                        </li>
+                        <li>
+                            <%- include('../partials/settingsicons.ejs') %>
+                            <span class="hide-appear" id="settingBtn">settings</span>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <section class="board">
+                <div class="header">
+                    <h2 id="chosen">all tasks</h2>
+                </div>
+                <div class="tasks-control">
+                    <div class="customize">
+                        <div class="separator"></div>
+                        <ul>
+                            <li id="newTask">
+                                <%- include('../partials/newtaskicon.ejs') %>
+                                <span> new task </span>
+                            </li>
+                            <li><%- include('../partials/filtericon.ejs') %></li>
+                            <li><%- include('../partials/gridicon.ejs') %></li>
+                        </ul>
+                    </div>
+                    <div class="appear-tasks"></div>
+                </div>
+            </section>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/js/tasks.js"></script>
+    </body>
+</html>
