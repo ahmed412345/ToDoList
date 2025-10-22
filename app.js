@@ -75,4 +75,8 @@ import errorHandler from "./middleware/errorHandler.js";
 app.use(errorHandler);
 
 //make server start working
-app.listen(process.env.PORT || 3000, _ => console.log("the server is running now at port : " + process.env.PORT));
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`✅ Server is running on port ${PORT}`);
+});

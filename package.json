@@ -23,6 +23,7 @@
         "mongoose": "^8.19.0",
         "nodemailer": "^7.0.9",
         "nodemon": "^3.1.10",
+        "resend": "^6.2.2",
         "sweetalert2": "^11.24.0"
     },
     "devDependencies": {
