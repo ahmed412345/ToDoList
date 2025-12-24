@@ -70,6 +70,10 @@ app.use("/", activationRouter);
 import logoutRouter from "./routes/logout.js";
 app.use("/", logoutRouter);
 
+//chat bot
+import chatBotRouter from "./routes/chat.js";
+app.use("/", chatBotRouter);
+
 //middleware for handling error
 import errorHandler from "./middleware/errorHandler.js";
 app.use(errorHandler);

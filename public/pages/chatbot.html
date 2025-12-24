@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>chat</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-size: 20px;
+            }
+            .main {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                min-height: 100vh;
+            }
+            .msg-contaner {
+                width: 100%;
+                flex-grow: 19;
+                background-color: rgb(74, 137, 74);
+                padding: 20px;
+                display: flex;
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 10px;
+            }
+            .msg-contaner .user-msg {
+                color: white;
+                padding: 10px;
+                border-radius: 10px;
+                background-color: #297955;
+                align-self: flex-start;
+            }
+            .msg-contaner .ai-msg {
+                color: white;
+                padding: 10px;
+                border-radius: 10px;
+                background-color: #396953;
+                align-self: flex-end;
+            }
+            .control {
+                width: 100%;
+                flex-grow: 1;
+                display: flex;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.276);
+                border: 2px solid rgb(68, 63, 63);
+            }
+            .control #mainInput {
+                flex-grow: 4;
+                border: none;
+                background-color: rgb(102, 135, 102);
+                color: white;
+                outline: none;
+                caret-color: white;
+                font-size: 20px;
+                padding: 2px;
+            }
+            .control button {
+                font-size: 20px;
+                flex-grow: 1;
+                border: none;
+                background-color: rgb(69, 122, 69);
+                color: white;
+                cursor: pointer;
+                transition: 0.3s;
+                border-left: 2px solid rgb(68, 63, 63);
+            }
+            .control button:hover {
+                background-color: rgb(13, 123, 103);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="main">
+            <div class="msg-contaner">
+                <div class="user-msg">thsi is user msg</div>
+                <div class="ai-msg">you can ask me about any thing</div>
+            </div>
+            <div class="control">
+                <input type="text" id="mainInput" />
+                <button id="sendBtn">send</button>
+            </div>
+        </div>
+        <script>
+            const sendBtn = document.getElementById("sendBtn");
+            const mainInput = document.getElementById("mainInput");
+            const msgContaner = document.querySelector(".msg-contaner");
+
+            const addMsgToUi = (msg, isUser) => {
+                let ele;
+                if (isUser) {
+                    ele = `<div class="user-msg">${msg}</div>`;
+                } else {
+                    ele = `<div class="ai-msg">${msg}</div>`;
+                }
+                msgContaner.innerHTML += ele;
+            };
+
+            const sendMsgToAPI = async message => {
+                const msgJson = JSON.stringify({ msg: message });
+                try {
+                    const result = await fetch("/api/chatbot", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: msgJson,
+                    });
+                    if (!result.ok) throw new Error("something went wrong");
+
+                    const aiRes = await result.json();
+                    const aiMsg = aiRes.msg;
+
+                    addMsgToUi(aiMsg, false);
+                } catch (e) {
+                    console.log(e);
+                }
+            };
+
+            sendBtn.addEventListener("click", _ => {
+                addMsgToUi(mainInput.value, true);
+                sendMsgToAPI(mainInput.value);
+                mainInput.value = "";
+            });
+        </script>
+    </body>
+</html>

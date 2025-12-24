@@ -1,23 +1,33 @@
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
 import dotenv from "dotenv";
 //add variables to environment
-
 dotenv.config();
-const resend = new Resend(process.env.RESEND_API_KEY);
+const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: process.env.gmail,
+        pass: process.env.gmailPass,
+    },
+});
 
 const sendOTP = async (email, otp) => {
-    try {
-        const info = await resend.emails.send({
-            from: "Tickit App <onboarding@resend.dev>",
+    const info = await transporter.sendMail(
+        {
+            from: `"tickit" <${process.env.gmail}>`,
             to: email,
             subject: "[tickit] please verify your device",
+            text: "your otp is " + otp,
             html: `<p>the activation code is </p><b>${otp}</b>`,
-        });
-        console.log(info);
-    } catch (e) {
-        console.log(e);
-    }
+        },
+        (err, info) => {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(info.response);
+            }
+        }
+    );
 };
 
 export { sendOTP };
