@@ -1,0 +1,7 @@
+[33mebccbe0[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{0}: rebase (abort): returning to refs/heads/main
+[33mdd4209e[m HEAD@{1}: commit: Initial commit
+[33m8ff220a[m HEAD@{2}: pull origin main --rebase (start): checkout 8ff220a449d5f044e965dd791930f33cacabc877
+[33mebccbe0[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m HEAD@{3}: commit: fix send message
+[33m9c231b6[m HEAD@{4}: Branch: renamed refs/heads/main to refs/heads/main
+[33m9c231b6[m HEAD@{6}: Branch: renamed refs/heads/master to refs/heads/main
+[33m9c231b6[m HEAD@{8}: commit (initial): Initial commit
